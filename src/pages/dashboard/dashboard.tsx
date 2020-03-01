@@ -1,7 +1,8 @@
 import React from 'react';
+import Title from 'antd/lib/typography/Title';
 
 export default function Dashboard() {
   return (
-    <h1>Dashboard</h1>
+    <Title>Dashboard</Title>
   );
 }

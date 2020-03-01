@@ -1,11 +1,6 @@
 import { connect } from 'react-redux';
-import Dashboard from './dashboard'
+import Dashboard from './Dashboard';
 
-const mapStateToProps = () => ({
-})
-const mapDispatchToProps = () => ({
-})
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Dashboard)
+const mapStateToProps = () => ({});
+const mapDispatchToProps = () => ({});
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

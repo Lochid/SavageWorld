@@ -3,12 +3,12 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers';
-import AppRouter from './app-router';
+import AppRouter from './AppRouter';
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer);
 render(
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>,
+  document.getElementById('root')
 );

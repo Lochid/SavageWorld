@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, RouteComponentProps } from "react-router-dom";
+
+type TParams = { id: string | undefined };
 
 function Index() {
   return <h2>Home</h2>;
 }
 
-function Product({ match }) {
+function Product({ match }: RouteComponentProps<TParams>) {
   return <h2>This is a page for product with ID: {match.params.id} </h2>;
 }
 function AppRouter() {

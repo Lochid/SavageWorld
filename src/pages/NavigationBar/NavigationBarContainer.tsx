@@ -1,4 +1,5 @@
-import { ReactElement, Dispatch } from 'react';
+import { ReactElement } from 'react';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import NavigationBar from './NavigationBar';
 import { putCurrentAddress, PutCurrentAddressData } from '../../actions';

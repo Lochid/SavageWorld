@@ -1,12 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
+import NavigationBar from './pages/NavigationBar';
 import './App.css';
 
-function AppRouter() {
+const AppRouter = () => {
   return (
     <Router>
-      <Route path="/" exact component={Dashboard} />
+      <NavigationBar>
+        <Redirect from="/" to="/dashboard" />
+        <Route path="/dashboard" exact component={Dashboard} />
+      </NavigationBar>
     </Router>
   );
 }

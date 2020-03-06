@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { Template } from '../../types/template';
 
 export interface TemplateAddProps {

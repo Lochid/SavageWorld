@@ -23,7 +23,7 @@ const navigationBar = (
             return {
                 ...state,
                 currentItem: state.menuItems
-                .find(({address})=>address)
+                    .find(({ address }) => address === action.address)
             };
         default:
             return state

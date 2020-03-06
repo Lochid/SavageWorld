@@ -1,5 +1,5 @@
 export default [{
-    name: 'Dashboard',
+    name: 'Templates',
     key: '1',
-    address: '/dashboard'
+    address: '/templates'
 }];

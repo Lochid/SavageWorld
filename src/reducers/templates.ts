@@ -1,6 +1,8 @@
 import {
     ADD_TEMPLATE,
-    AddTemplateData
+    EDIT_TEMPLATE,
+    AddTemplateData,
+    EditTemplateData
 } from '../actions/index';
 import { Template } from '../types/template';
 
@@ -14,15 +16,32 @@ const initValues = {
 
 const templates = (
     state: State = initValues,
-    action: AddTemplateData,
+    action: AddTemplateData | EditTemplateData,
 ) => {
     switch (action.type) {
         case ADD_TEMPLATE:
             return {
                 ...state,
-                templateList:[
+                templateList: [
                     ...state.templateList,
                     action.template
+                ]
+            }
+        case EDIT_TEMPLATE:
+            return {
+                ...state,
+                templateList: [
+                    ...state.templateList
+                        .map((template) => {
+                            if (template.key === action.template.key) {
+                                template.name = action.template.name;
+                                return {
+                                    ...template,
+                                    ...action.template
+                                };
+                            }
+                            return template;
+                        }),
                 ]
             }
         default:

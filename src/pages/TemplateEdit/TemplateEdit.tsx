@@ -1,32 +1,34 @@
 import React from 'react';
-import { v4 as uuid } from 'uuid';
 import TemplateForm from '../../components/TemplateForm';
 import { Template } from '../../types/template';
 
-export interface TemplateAddProps {
-  addTemplate: (template: Template) => void;
+export interface TemplateEditProps {
+  template: Template;
+  editTemplate: (template: Template) => void;
   history: {
     goBack: () => void;
   }
 }
 
-const TemplateAdd = ({
-  addTemplate,
+const TemplateEdit = ({
+  template,
+  editTemplate,
   history: {
     goBack
   }
-}: TemplateAddProps) => {
+}: TemplateEditProps) => {
   return (
     <TemplateForm
+      initialData={template}
       onFinish={(values) => {
-        const template = values as Template;
-        addTemplate({
+        const temp = values as Template;
+        editTemplate({
           ...template,
-          key: uuid()
+          ...temp
         });
         goBack();
       }}
     />
   );
 }
-export default TemplateAdd;
+export default TemplateEdit;

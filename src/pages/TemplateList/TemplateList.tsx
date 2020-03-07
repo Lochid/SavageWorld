@@ -24,7 +24,7 @@ const TemplateList = ({
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            render: (name: string, { key }: Template) => <NameColumn url={`/templates/${key}`} name={name} />,
+            render: (name: string, { key }: Template) => <NameColumn url={`/templates/edit/${key}`} name={name} />,
           }
         ]}
       />

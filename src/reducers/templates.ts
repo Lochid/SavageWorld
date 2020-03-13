@@ -1,8 +1,10 @@
 import {
     ADD_TEMPLATE,
     EDIT_TEMPLATE,
+    DELETE_TEMPLATES,
     AddTemplateData,
-    EditTemplateData
+    EditTemplateData,
+    DeleteTemplateData
 } from '../actions/index';
 import { Template } from '../types/template';
 
@@ -16,7 +18,7 @@ const initValues = {
 
 const templates = (
     state: State = initValues,
-    action: AddTemplateData | EditTemplateData,
+    action: AddTemplateData | EditTemplateData | DeleteTemplateData,
 ) => {
     switch (action.type) {
         case ADD_TEMPLATE:
@@ -41,6 +43,16 @@ const templates = (
                                 };
                             }
                             return template;
+                        }),
+                ]
+            }
+        case DELETE_TEMPLATES:
+            return {
+                ...state,
+                templateList: [
+                    ...state.templateList
+                        .filter((template) => {
+                            return action.templateKeys.find(key => key === template.key) === undefined;
                         }),
                 ]
             }

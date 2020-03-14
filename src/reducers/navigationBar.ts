@@ -10,7 +10,7 @@ export interface State {
     currentItem?: MenuItemProps;
 }
 
-const initValues = {
+export const initValues = {
     menuItems
 };
 

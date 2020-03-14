@@ -12,7 +12,7 @@ export interface State {
     templateList: Template[];
 }
 
-const initValues = {
+export const initValues = {
     templateList: []
 };
 

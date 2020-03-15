@@ -88,11 +88,4 @@ describe('NavigationBarContainer', () => {
         expect(putCurrentAddressMock).toHaveBeenCalledWith(address);
         expect(dispatch).toHaveBeenCalledWith(putCurrentAddressMockValue);
     });
-    /*
-    
-        it('should map dispatch to props', () => {
-            const expectedPropKeys = ['load'];
-    
-            expect(Object.keys(component.props())).toEqual(expect.arrayContaining(expectedPropKeys));
-        });*/
 });

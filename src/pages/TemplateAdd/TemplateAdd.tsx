@@ -19,11 +19,11 @@ const TemplateAdd = ({
   return (
     <TemplateForm
       onFinish={(values) => {
-        const template = values as Template;
+        const template = values as Partial<Template>;
         addTemplate({
           ...template,
           key: uuid()
-        });
+        } as Template);
         goBack();
       }}
     />

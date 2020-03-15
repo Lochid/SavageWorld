@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import NavigationBar from './NavigationBar';
 import { shallow } from 'enzyme';
 import { Menu, Layout } from 'antd';
+import NavigationBar from './NavigationBar';
 const { Content } = Layout;
 
 jest.mock('react-router-dom', () => ({

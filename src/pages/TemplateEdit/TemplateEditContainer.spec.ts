@@ -12,7 +12,7 @@ jest.mock('../../actions', () => ({
 const connectMock = connect as jest.Mock;
 const editTemplateMock = editTemplate as jest.Mock;
 
-const editTemplateMockValue = 'addTemplateMockValue';
+const editTemplateMockValue = 'editTemplateMockValue';
 const template = {
     key: 'key'
 };
@@ -82,7 +82,7 @@ describe('TemplateEditContainer', () => {
         expect(props).toEqual(preprops);
     });
 
-    it('put putCurrentAddress to props and call putCurrentAddress from actions', () => {
+    it('put editTemplate to props and call editTemplate from actions', () => {
         const template = 'template';
         const dispatch = jest.fn();
         const props = mapDispatchToProps(dispatch);

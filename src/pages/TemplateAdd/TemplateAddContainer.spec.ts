@@ -44,7 +44,7 @@ describe('TemplateAddContainer', () => {
         expect(props).toEqual(preprops);
     });
 
-    it('put putCurrentAddress to props and call putCurrentAddress from actions', () => {
+    it('put addTemplateMock to props and call addTemplateMock from actions', () => {
         const template = 'template';
         const dispatch = jest.fn();
         const props = mapDispatchToProps(dispatch);

@@ -4,6 +4,7 @@ import Table from 'antd/lib/table/Table';
 import Button from 'antd/lib/button/button';
 import NameColumn from '../../components/NameColumn';
 import { CharacterSheet } from '../../types/characterSheet';
+import { Template } from '../../types/template';
 
 export interface CharacterSheetListProps {
   characterSheetList: CharacterSheet[];
@@ -25,6 +26,7 @@ class CharacterSheetList extends Component<CharacterSheetListProps, CharacterShe
 
   render() {
     const { characterSheetList } = this.props;
+    console.log(characterSheetList);
     return (
       <>
         <Button>
@@ -43,13 +45,22 @@ class CharacterSheetList extends Component<CharacterSheetListProps, CharacterShe
               characterSheetIds: selectedCharacterSheetIds.map(id => id.toString())
             })
           }}
-          dataSource={characterSheetList}
+          dataSource={characterSheetList.map(characterSheet => ({
+            ...characterSheet,
+            key: characterSheet.id
+          }))}
           columns={[
             {
               title: 'Name',
               dataIndex: 'name',
               key: 'name',
               render: (name: string, { id }: CharacterSheet) => <NameColumn url={`/charsheets/edit/${id}`} name={name} />,
+            },
+            {
+              title: 'Template',
+              dataIndex: 'template',
+              key: 'template',
+              render: ({ id, name }: Template) => <NameColumn url={`/templates/edit/${id}`} name={name} />,
             }
           ]}
         />

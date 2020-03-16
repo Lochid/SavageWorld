@@ -43,7 +43,10 @@ class TemplateList extends Component<TemplateListProps, TemplateListState> {
               templateIds: selectedTemplatesIds.map(id => id.toString())
             })
           }}
-          dataSource={templateList}
+          dataSource={templateList.map(template=>({
+            ...template,
+            key: template.id
+          }))}
           columns={[
             {
               title: 'Name',

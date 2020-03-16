@@ -19,7 +19,7 @@ export const initValues = {
 const templates = (
     state: State = initValues,
     action: AddTemplateData | EditTemplateData | DeleteTemplateData,
-) => {
+): State => {
     switch (action.type) {
         case ADD_TEMPLATE:
             return {

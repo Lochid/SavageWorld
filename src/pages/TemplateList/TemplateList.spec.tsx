@@ -42,14 +42,17 @@ describe('TemplateList', () => {
     });
 
     it('return templateList as dataSource on table', () => {
-        const templateList = ['id1', 'id2'];
+        const templateList: any = [{ id: 'id1' }, { id: 'id2' }];
 
         const templateAdd = shallow(<TemplateList templateList={templateList} deleteTemplates={jest.fn()} />);
 
         const table = templateAdd.find(Table);
         const dataSource: any = table.prop('dataSource');
 
-        expect(dataSource).toEqual(templateList);
+        expect(dataSource).toEqual(templateList.map((template: any) => ({
+            ...template,
+            key: template.id
+        })));
     });
 
     it('return templateList as dataSource on table', () => {
@@ -61,7 +64,7 @@ describe('TemplateList', () => {
         const table = templateAdd.find(Table);
         const columns: any = table.prop('columns');
         const render = columns[0].render;
-        const result = render(name, {id});
+        const result = render(name, { id });
 
         expect(result.props.url).toEqual(`/templates/edit/${id}`);
         expect(result.props.name).toEqual(name);

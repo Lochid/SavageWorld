@@ -17,7 +17,7 @@ export const initValues = {
 const navigationBar = (
     state: State = initValues,
     action: PutCurrentAddressData,
-) => {
+): State => {
     switch (action.type) {
         case PUT_CURRENT_ADDRESS:
             return {

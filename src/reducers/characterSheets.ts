@@ -1,5 +1,10 @@
 import { CharacterSheet } from '../types/characterSheet';
-import { DeleteCharacterSheetData, DELETE_CHARACTER_SHEETS } from '../actions';
+import {
+    DELETE_CHARACTER_SHEETS,
+    ADD_CHARACTER_SHEET,
+    DeleteCharacterSheetData,
+    AddCharacterSheetData
+} from '../actions';
 
 export interface State {
     characterSheetList: CharacterSheet[];
@@ -11,9 +16,17 @@ export const initValues = {
 
 const characterSheets = (
     state: State = initValues,
-    action: DeleteCharacterSheetData,
-) => {
+    action: AddCharacterSheetData | DeleteCharacterSheetData,
+): State => {
     switch (action.type) {
+        case ADD_CHARACTER_SHEET:
+            return {
+                ...state,
+                characterSheetList: [
+                    ...state.characterSheetList,
+                    action.characterSheet
+                ]
+            }
         case DELETE_CHARACTER_SHEETS:
             return {
                 ...state,

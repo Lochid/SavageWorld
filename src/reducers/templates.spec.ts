@@ -12,7 +12,7 @@ const state = {
     ]
 };
 
-describe('navigationBar', () => {
+describe('templates', () => {
     it('return initValues if state is empty', () => {
         const result = templates(undefined, {} as any);
 

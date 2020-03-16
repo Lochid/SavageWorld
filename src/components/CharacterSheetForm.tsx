@@ -8,14 +8,23 @@ const { Option } = Select;
 export interface CharacterSheetFormProps {
     onFinish: (values: Partial<CharacterSheet>) => void;
     initialData?: Partial<CharacterSheet>;
-    templates: Template[];
+    templates?: Template[];
 }
 
 const CharacterSheetForm = ({
     onFinish,
     initialData = {},
-    templates = []
+    templates
 }: CharacterSheetFormProps) => {
+    let currentTemplates = [] as Template[];
+    if (templates !== undefined) {
+        currentTemplates = templates;
+    }
+
+    if (templates === undefined && initialData.template !== undefined) {
+        currentTemplates = [initialData.template];
+    }
+
     return (
         <Form
             name="basic"
@@ -34,9 +43,9 @@ const CharacterSheetForm = ({
                 name="templateId"
                 rules={[{ required: true, message: 'Please choose template!' }]}
             >
-                <Select style={{ width: 120 }}>
+                <Select style={{ width: 120 }} disabled={templates === undefined}>
                     {
-                        templates
+                        currentTemplates
                             .map(({ id, name }) => <Option key={id} value={id}>{name}</Option>)
                     }
                 </Select>

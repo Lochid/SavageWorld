@@ -6,6 +6,7 @@ import TemplateAdd from './pages/TemplateAdd';
 import TemplateEdit from './pages/TemplateEdit';
 import CharacterSheetList from './pages/CharacterSheetList';
 import CharacterSheetAdd from './pages/CharacterSheetAdd';
+import CharacterSheetEdit from './pages/CharacterSheetEdit';
 import './App.css';
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/templates/edit/:id" exact component={TemplateEdit} />
         <Route path="/charsheets" exact component={CharacterSheetList} />
         <Route path="/charsheets/add" exact component={CharacterSheetAdd} />
+        <Route path="/charsheets/edit/:id" exact component={CharacterSheetEdit} />
       </NavigationBar>
     </Router>
   );

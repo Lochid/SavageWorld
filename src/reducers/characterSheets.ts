@@ -2,8 +2,10 @@ import { CharacterSheet } from '../types/characterSheet';
 import {
     DELETE_CHARACTER_SHEETS,
     ADD_CHARACTER_SHEET,
-    DeleteCharacterSheetData,
-    AddCharacterSheetData
+    EDIT_CHARACTER_SHEET,
+    AddCharacterSheetData,
+    EditCharacterSheetData,
+    DeleteCharacterSheetData
 } from '../actions';
 
 export interface State {
@@ -16,7 +18,7 @@ export const initValues = {
 
 const characterSheets = (
     state: State = initValues,
-    action: AddCharacterSheetData | DeleteCharacterSheetData,
+    action: AddCharacterSheetData | EditCharacterSheetData | DeleteCharacterSheetData,
 ): State => {
     switch (action.type) {
         case ADD_CHARACTER_SHEET:
@@ -25,6 +27,23 @@ const characterSheets = (
                 characterSheetList: [
                     ...state.characterSheetList,
                     action.characterSheet
+                ]
+            }
+        case EDIT_CHARACTER_SHEET:
+            return {
+                ...state,
+                characterSheetList: [
+                    ...state.characterSheetList
+                        .map((characterSheet) => {
+                            if (characterSheet.id === action.characterSheet.id) {
+                                characterSheet.name = action.characterSheet.name;
+                                return {
+                                    ...characterSheet,
+                                    ...action.characterSheet
+                                };
+                            }
+                            return characterSheet;
+                        }),
                 ]
             }
         case DELETE_CHARACTER_SHEETS:

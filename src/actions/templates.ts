@@ -16,7 +16,7 @@ export interface EditTemplateData {
 
 export interface DeleteTemplateData {
     type: 'DELETE_TEMPLATES';
-    templateKeys: string[];
+    templateIds: string[];
 }
 
 export const addTemplate = (template: Template): AddTemplateData => ({
@@ -29,7 +29,7 @@ export const editTemplate = (template: Template): EditTemplateData => ({
     template
 });
 
-export const deleteTemplates = (templateKeys: string[]): DeleteTemplateData => ({
+export const deleteTemplates = (templateIds: string[]): DeleteTemplateData => ({
     type: DELETE_TEMPLATES,
-    templateKeys
+    templateIds
 });

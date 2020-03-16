@@ -14,7 +14,7 @@ const editTemplateMock = editTemplate as jest.Mock;
 
 const editTemplateMockValue = 'editTemplateMockValue';
 const template = {
-    key: 'key'
+    id: 'id'
 };
 const templateList = [
     template
@@ -29,7 +29,7 @@ const state = {
 const defaultPreprops = {
     match: {
         params: {
-            key: 'key'
+            id: 'id'
         }
     }
 }
@@ -69,7 +69,7 @@ describe('TemplateEditContainer', () => {
         const preprops = {
             match: {
                 params: {
-                    key: 'key1'
+                    id: 'id1'
                 }
             },
             history: {

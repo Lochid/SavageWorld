@@ -9,7 +9,7 @@ describe('TemplateList', () => {
         jest.clearAllMocks();
     });
 
-    it('onClick on delete button call deleteTemplates from props with templateKeys', () => {
+    it('onClick on delete button call deleteTemplates from props with templateIds', () => {
         const deleteTemplates = jest.fn();
 
         const templateAdd = shallow(<TemplateList templateList={[]} deleteTemplates={deleteTemplates} />);
@@ -24,8 +24,8 @@ describe('TemplateList', () => {
         expect(deleteTemplates).toHaveBeenCalledWith([]);
     });
 
-    it('onChange on table select put selected items to templateKeys', () => {
-        const templateKeys = ['key1', 'key2'];
+    it('onChange on table select put selected items to templateIds', () => {
+        const templateIds = ['id1', 'id2'];
 
         const templateAdd = shallow(<TemplateList templateList={[]} deleteTemplates={jest.fn()} />);
 
@@ -33,16 +33,16 @@ describe('TemplateList', () => {
         const rowSelection: any = table.prop('rowSelection');
         const onChange = rowSelection.onChange;
 
-        onChange(templateKeys);
+        onChange(templateIds);
 
         const state = templateAdd.state();
         expect(state).toEqual({
-            templateKeys
+            templateIds
         });
     });
 
     it('return templateList as dataSource on table', () => {
-        const templateList: any = ['key1', 'key2'];
+        const templateList = ['id1', 'id2'];
 
         const templateAdd = shallow(<TemplateList templateList={templateList} deleteTemplates={jest.fn()} />);
 
@@ -54,16 +54,16 @@ describe('TemplateList', () => {
 
     it('return templateList as dataSource on table', () => {
         const name = 'name';
-        const key = 'key';
+        const id = 'id';
 
         const templateAdd = shallow(<TemplateList templateList={[]} deleteTemplates={jest.fn()} />);
 
         const table = templateAdd.find(Table);
         const columns: any = table.prop('columns');
         const render = columns[0].render;
-        const result = render(name, {key});
+        const result = render(name, {id});
 
-        expect(result.props.url).toEqual(`/templates/edit/${key}`);
+        expect(result.props.url).toEqual(`/templates/edit/${id}`);
         expect(result.props.name).toEqual(name);
     });
 });

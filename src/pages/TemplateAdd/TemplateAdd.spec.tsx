@@ -29,7 +29,7 @@ describe('TemplateAdd', () => {
 
         expect(addTemplate).toHaveBeenCalledWith({
             ...values,
-            key: uuidMockValue
+            id: uuidMockValue
         });
     });
 });

@@ -14,7 +14,7 @@ const deleteTemplatesMock = deleteTemplates as jest.Mock;
 
 const deleteTemplatesMockValue = 'deleteTemplatesMockValue';
 const template = {
-    key: 'key'
+    id: 'id'
 };
 const templateList = [
     template
@@ -61,13 +61,13 @@ describe('TemplateListContainer', () => {
     });
 
     it('put deleteTemplates to props and call deleteTemplates from actions', () => {
-        const templateKeys =['template'];
+        const templateIds =['template'];
         const dispatch = jest.fn();
         const props = mapDispatchToProps(dispatch);
 
-        props.deleteTemplates(templateKeys);
+        props.deleteTemplates(templateIds);
 
-        expect(deleteTemplatesMock).toHaveBeenCalledWith(templateKeys);
+        expect(deleteTemplatesMock).toHaveBeenCalledWith(templateIds);
         expect(dispatch).toHaveBeenCalledWith(deleteTemplatesMockValue);
     });
 });

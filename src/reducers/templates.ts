@@ -35,7 +35,7 @@ const templates = (
                 templateList: [
                     ...state.templateList
                         .map((template) => {
-                            if (template.key === action.template.key) {
+                            if (template.id === action.template.id) {
                                 template.name = action.template.name;
                                 return {
                                     ...template,
@@ -52,7 +52,7 @@ const templates = (
                 templateList: [
                     ...state.templateList
                         .filter((template) => {
-                            return action.templateKeys.find(key => key === template.key) === undefined;
+                            return action.templateIds.find(id => id === template.id) === undefined;
                         }),
                 ]
             }

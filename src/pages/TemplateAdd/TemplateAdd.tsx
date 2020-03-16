@@ -22,7 +22,7 @@ const TemplateAdd = ({
         const template = values as Partial<Template>;
         addTemplate({
           ...template,
-          key: uuid()
+          id: uuid()
         } as Template);
         goBack();
       }}

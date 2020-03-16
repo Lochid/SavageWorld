@@ -8,7 +8,7 @@ import { Template } from '../../types/template';
 export interface OwnProps {
     match: {
         params: {
-            key: string;
+            id: string;
         }
     };
     history: {
@@ -18,7 +18,7 @@ export interface OwnProps {
 
 const mapStateToProps = ({ templates: { templateList } }: State, props: OwnProps) => {
     const template = templateList
-        .find(temp => temp.key === props.match.params.key);
+        .find(temp => temp.id === props.match.params.id);
     if (template === undefined) {
         props.history.goBack();
         return props;

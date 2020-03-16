@@ -7,11 +7,11 @@ import { Template } from '../../types/template';
 
 export interface TemplateListProps {
   templateList: Template[];
-  deleteTemplates: (templateKeys: string[]) => void;
+  deleteTemplates: (templateIds: string[]) => void;
 }
 
 export interface TemplateListState {
-  templateKeys: string[];
+  templateIds: string[];
 }
 
 class TemplateList extends Component<TemplateListProps, TemplateListState> {
@@ -19,7 +19,7 @@ class TemplateList extends Component<TemplateListProps, TemplateListState> {
     super(props);
 
     this.state = {
-      templateKeys: []
+      templateIds: []
     };
   }
 
@@ -31,16 +31,16 @@ class TemplateList extends Component<TemplateListProps, TemplateListState> {
           <Link to="/templates/add">Add template</Link>
         </Button>
         <Button
-          onClick={() => this.props.deleteTemplates(this.state.templateKeys)}
+          onClick={() => this.props.deleteTemplates(this.state.templateIds)}
         >
           Delete template
         </Button>
         <Table
           rowSelection={{
             type: 'checkbox',
-            onChange: (selectedTemplatesKeys) => this.setState({
+            onChange: (selectedTemplatesIds) => this.setState({
               ...this.state,
-              templateKeys: selectedTemplatesKeys.map(key => key.toString())
+              templateIds: selectedTemplatesIds.map(id => id.toString())
             })
           }}
           dataSource={templateList}
@@ -49,7 +49,7 @@ class TemplateList extends Component<TemplateListProps, TemplateListState> {
               title: 'Name',
               dataIndex: 'name',
               key: 'name',
-              render: (name: string, { key }: Template) => <NameColumn url={`/templates/edit/${key}`} name={name} />,
+              render: (name: string, { id }: Template) => <NameColumn url={`/templates/edit/${id}`} name={name} />,
             }
           ]}
         />

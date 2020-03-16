@@ -13,7 +13,7 @@ const AppRouter = () => {
         <Redirect from="/" to="/templates" />
         <Route path="/templates" exact component={TemplateList} />
         <Route path="/templates/add" exact component={TemplateAdd} />
-        <Route path="/templates/edit/:key" exact component={TemplateEdit} />
+        <Route path="/templates/edit/:id" exact component={TemplateEdit} />
       </NavigationBar>
     </Router>
   );

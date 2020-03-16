@@ -11,7 +11,7 @@ describe('TemplateEdit', () => {
         const editTemplate = jest.fn();
         const goBack = jest.fn();
         const template: any = {
-            key: 'key'
+            id: 'id'
         };
         const values = {
             name: 'name'

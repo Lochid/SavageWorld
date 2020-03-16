@@ -2,7 +2,7 @@ import templates, { initValues } from './templates';
 import { ADD_TEMPLATE, EDIT_TEMPLATE, DELETE_TEMPLATES } from '../actions';
 
 const template = {
-    key: 'key',
+    id: 'id',
     name: 'template'
 };
 
@@ -56,11 +56,11 @@ describe('navigationBar', () => {
             ]
         });
     });
-    it('return state with unupdated template if type is EDIT_TEMPLATE and template has wrong key', () => {
+    it('return state with unupdated template if type is EDIT_TEMPLATE and template has wrong id', () => {
         const result = templates(state, {
             type: EDIT_TEMPLATE,
             template: {
-                key: 'otherKey',
+                id: 'otherId',
                 name: 'templateName'
             }
         });
@@ -71,20 +71,20 @@ describe('navigationBar', () => {
             ]
         });
     });
-    it('return state without template which was deleted if type is DELETE_TEMPLATES and key exist', () => {
+    it('return state without template which was deleted if type is DELETE_TEMPLATES and id exist', () => {
         const result = templates(state, {
             type: DELETE_TEMPLATES,
-            templateKeys: [template.key]
+            templateIds: [template.id]
         });
 
         expect(result).toEqual({
             templateList: []
         });
     });
-    it('return state with all templates if type is DELETE_TEMPLATES and templates with key is not exist', () => {
+    it('return state with all templates if type is DELETE_TEMPLATES and templates with id is not exist', () => {
         const result = templates(state, {
             type: DELETE_TEMPLATES,
-            templateKeys: ['otherKey']
+            templateIds: ['otherId']
         });
 
         expect(result).toEqual({

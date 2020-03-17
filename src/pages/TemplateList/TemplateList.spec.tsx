@@ -55,7 +55,7 @@ describe('TemplateList', () => {
         })));
     });
 
-    it('return templateList as dataSource on table', () => {
+    it('return template name component as column', () => {
         const name = 'name';
         const id = 'id';
 

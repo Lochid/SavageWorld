@@ -26,7 +26,6 @@ class CharacterSheetList extends Component<CharacterSheetListProps, CharacterShe
 
   render() {
     const { characterSheetList } = this.props;
-    console.log(characterSheetList);
     return (
       <>
         <Button>

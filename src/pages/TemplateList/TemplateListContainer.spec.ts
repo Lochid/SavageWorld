@@ -31,8 +31,8 @@ const defaultPreprops = {
 }
 
 describe('TemplateListContainer', () => {
-    let mapStateToProps;
-    let mapDispatchToProps;
+    let mapStateToProps: any;
+    let mapDispatchToProps: any;
 
     beforeAll(async () => {
         jest.resetAllMocks();

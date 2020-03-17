@@ -35,8 +35,8 @@ const defaultPreprops = {
 }
 
 describe('TemplateEditContainer', () => {
-    let mapStateToProps;
-    let mapDispatchToProps;
+    let mapStateToProps: any;
+    let mapDispatchToProps: any;
 
     beforeAll(async () => {
         jest.resetAllMocks();

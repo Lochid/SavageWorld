@@ -26,8 +26,8 @@ const state = {
 }
 
 describe('NavigationBarContainer', () => {
-    let mapStateToProps;
-    let mapDispatchToProps;
+    let mapStateToProps: any;
+    let mapDispatchToProps: any;
 
     beforeAll(async () => {
         jest.resetAllMocks();
@@ -82,7 +82,7 @@ describe('NavigationBarContainer', () => {
         const address = 'address';
         const dispatch = jest.fn();
         const props = mapDispatchToProps(dispatch);
-        
+
         props.putCurrentAddress(address);
 
         expect(putCurrentAddressMock).toHaveBeenCalledWith(address);

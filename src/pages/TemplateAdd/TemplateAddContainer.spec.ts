@@ -15,8 +15,8 @@ const addTemplateMock = addTemplate as jest.Mock;
 const addTemplateMockValue = 'addTemplateMockValue';
 
 describe('TemplateAddContainer', () => {
-    let mapStateToProps;
-    let mapDispatchToProps;
+    let mapStateToProps: any;
+    let mapDispatchToProps: any;
 
     beforeAll(async () => {
         jest.resetAllMocks();
